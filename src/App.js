@@ -14,7 +14,6 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/health-records" element={<HealthRecords />} />
           <Route path="/supply-chain" element={<SupplyChain />} />
-          {/* Add more routes as needed */}
         </Routes>
       </div>
     </Router>
