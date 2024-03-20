@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard' },
-  { name: 'Health Records', href: '/health-records', current: true },
-  { name: 'Supply Chain', href: '/supply-chain' },
+  { name: 'General Examination', href: '/general-examination', current: true },
+  { name: 'Investigation', href: '/investigation' },
+  { name: 'Diagnosis', href: '/diagnosis' },
+  { name: 'Treatment', href: '/treatment' },
+  { name: 'Insurance', href: '/insurance' },
+  { name: 'Medical History', href: '/medical-history' },
 ];
 
 const initialRecords = [
@@ -36,22 +40,7 @@ const initialRecords = [
 ];
 
 export default function HealthRecords() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('date');
-  const [records, setRecords] = useState(initialRecords);
-
-  const filteredRecords = records.filter(record => {
-    return record.diagnoses.join(', ').toLowerCase().includes(searchQuery.toLowerCase());
-  }).sort((a, b) => {
-    switch (sortBy) {
-      case 'date':
-        return new Date(b.dateOfHospitalization) - new Date(a.dateOfHospitalization);
-      case 'disease':
-        return a.diagnoses[0].localeCompare(b.diagnoses[0]);
-      default:
-        return 0;
-    }
-  });
+  const [records] = useState(initialRecords);
 
   return (
     <div className="flex">
@@ -87,28 +76,6 @@ export default function HealthRecords() {
       
       {/* Main Content */}
       <div className="flex-1 p-4 ml-48">
-        {/* Search and Sort */}
-        <div className="mb-4 flex items-center justify-between">
-          <div className="flex">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search Diagnoses"
-              className="border border-gray-300 px-3 py-2 mr-4 rounded-md focus:outline-none focus:border-blue-400"
-            />
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:border-blue-400"
-            >
-              <option value="date">Sort by Date</option>
-              <option value="disease">Sort by Diagnosis</option>
-            </select>
-          </div>
-          {/* Add Record Button */}
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-md font-semibold">Add Record</button>
-        </div>
         {/* General Examination Form */}
         <div className="mx-auto w-full max-w-2xl border rounded-lg p-6 bg-gray-100 shadow-md">
           <h2 className="text-lg font-semibold mb-4">General Examination</h2>
@@ -165,7 +132,8 @@ export default function HealthRecords() {
               <div>
                 <label className="block text-sm font-semibold mb-2">Temperature</label>
                 <input
-                  type="text"                   placeholder="Temperature"
+                  type="text"
+                  placeholder="Temperature"
                   className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
                 />
               </div>
@@ -189,15 +157,14 @@ export default function HealthRecords() {
         <div className="mt-8">
           <h2 className="text-lg font-semibold mb-4">Existing Records</h2>
           <div className="grid gap-8">
-            {filteredRecords.map((record, index) => (
+            {records.map((record, index) => (
               <div key={index} className="mx-auto w-full max-w-2xl border rounded-lg p-6 bg-gray-100 shadow-md">
                 {/* Display Existing Records Here */}
               </div>
             ))}
           </div>
         </div>
+        </div>
       </div>
-    </div>
   );
 }
-

@@ -68,6 +68,9 @@ export default function SignIn() {
               </Link>
             </div>
           </form>
+          <div className="text-center mt-4">
+            <p className="text-sm text-gray-600">Don't have an account? <Link to="/register-patient" className="font-semibold text-indigo-600 hover:text-indigo-500">Register as a Patient</Link> or <Link to="/register-hospital" className="font-semibold text-indigo-600 hover:text-indigo-500">Register as a Hospital</Link></p>
+          </div>
         </div>
       </div>
     </>

@@ -5,8 +5,12 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', current: true },
-  { name: 'Health Records', href: '/health-records' },
-  { name: 'Supply Chain', href: '/supply-chain' },
+  { name: 'General Examination', href: '/general-examination' },
+  { name: 'Investigation', href: '/investigation' },
+  { name: 'Diagnosis', href: '/diagnosis' },
+  { name: 'Treatment', href: '/treatment' },
+  { name: 'Insurance', href: '/insurance' },
+  { name: 'Medical History', href: '/medical-history' },
 ];
 
 function classNames(...classes) {
@@ -221,3 +225,4 @@ export default function Dashboard() {
     </div>
   );
 }
+
