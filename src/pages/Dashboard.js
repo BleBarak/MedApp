@@ -50,7 +50,7 @@ export default function Dashboard() {
           {/* Logo and Navigation */}
           <div>
             <div className="flex items-center mb-8">
-              <h1 className="text-lg font-semibold text-white">Medical Dashboard</h1>
+              <h1 className="text-lg font-semibold text-black">SMART MEDCARE</h1>
             </div>
             <nav className="flex flex-col space-y-2">
               {navigation.map((item) => (

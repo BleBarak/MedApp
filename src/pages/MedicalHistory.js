@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const navigation = [
   { name: 'Dashboard', href: '/dashboard' },
   { name: 'General Examination', href: '/general-examination' },
@@ -46,8 +47,79 @@ const sampleMedicalHistory = [
     doctorId: 'Dr. Johnson',
     hospitalId: 'City Hospital',
   },
-  // Add more sample data as needed
+  // More sample data
+  {
+    recordId: '3',
+    date: '2023-03-10',
+    patientName: 'John Doe',
+    age: 45,
+    gender: 'Female',
+    bloodTest: 'Normal',
+    urineTest: 'Normal',
+    ecg: 'Abnormal',
+    mriScan: 'Required',
+    ctScan: 'Required',
+    xRay: 'Not required',
+    labTest: 'Blood sugar',
+    primaryDiagnosis: 'Diabetes',
+    doctorId: 'Dr. Anderson',
+    hospitalId: 'County Hospital',
+  },
+  {
+    recordId: '4',
+    date: '2023-04-05',
+    patientName: 'John Doe',
+    age: 45,
+    gender: 'Male',
+    bloodTest: 'Normal',
+    urineTest: 'Abnormal',
+    ecg: 'Normal',
+    mriScan: 'Not required',
+    ctScan: 'Required',
+    xRay: 'Required',
+    labTest: 'Urine culture',
+    primaryDiagnosis: 'Urinary tract infection',
+    doctorId: 'Dr. Lee',
+    hospitalId: 'Community Hospital',
+  },
+  // Additional sample data
+  {
+    recordId: '5',
+    date: '2023-05-20',
+    patientName: 'John Doe',
+    age: 45,
+    gender: 'Female',
+    bloodTest: 'Abnormal',
+    urineTest: 'Normal',
+    ecg: 'Normal',
+    mriScan: 'Not required',
+    ctScan: 'Not required',
+    xRay: 'Not required',
+    labTest: 'Cholesterol',
+    primaryDiagnosis: 'Hypercholesterolemia',
+    doctorId: 'Dr. Martinez',
+    hospitalId: 'City Hospital',
+  },
+  {
+    recordId: '6',
+    date: '2023-06-12',
+    patientName: 'John Doe',
+    age: 45,
+    gender: 'Male',
+    bloodTest: 'Normal',
+    urineTest: 'Abnormal',
+    ecg: 'Abnormal',
+    mriScan: 'Not required',
+    ctScan: 'Not required',
+    xRay: 'Not required',
+    labTest: 'PSA',
+    primaryDiagnosis: 'Prostate cancer',
+    doctorId: 'Dr. Thompson',
+    hospitalId: 'County Hospital',
+  },
+  // You can continue adding more sample data as needed
 ];
+
 
 const MedicalHistory = () => {
   const [sortBy, setSortBy] = useState(null);
@@ -81,7 +153,7 @@ const MedicalHistory = () => {
           {/* Logo and Navigation */}
           <div>
             <div className="flex items-center mb-8">
-              <h1 className="text-lg font-semibold text-white">Medical History</h1>
+              <h1 className="text-lg font-semibold text-black">SMART MEDCARE</h1>
             </div>
             <nav className="flex flex-col space-y-2">
               {navigation.map((item) => (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import johnDoeImage from '../images/pfp.jpg'; // Import the image
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard' },
@@ -43,128 +44,135 @@ export default function HealthRecords() {
   const [records] = useState(initialRecords);
 
   return (
-    <div className="flex">
-      {/* Side Navigation */}
-      <div className="bg-blue-400 w-48 h-screen p-4 fixed top-0 left-0">
-        <div className="flex flex-col justify-between h-full">
-          {/* Logo and Navigation */}
-          <div>
-            <div className="flex items-center mb-8">
-              <h1 className="text-lg font-semibold text-white">Health Records</h1>
-            </div>
-            <nav className="flex flex-col space-y-2">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={item.current
-                    ? 'bg-blue-600 text-black group flex items-center px-4 py-2 rounded-md text-sm font-semibold transition-colors duration-300'
-                    : 'text-black hover:bg-blue-600 hover:text-white group flex items-center px-4 py-2 rounded-md text-sm font-semibold transition-colors duration-300'
-                  }
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-          {/* Footer */}
-          <div>
-            <p className="text-xs text-gray-200">Your Company Name</p>
+    <div className="flex flex-col h-screen">
+      {/* Top Navigation */}
+      <nav className="bg-blue-600 border-b border-gray-200 p-4">
+        <div className="flex justify-between items-center">
+          <h1 className="text-lg font-semibold">SMART MEDCARE</h1>
+          {/* Profile Section */}
+          <div className="flex items-center">
+            <span className="mr-4">John Doe</span>
+            <img
+              src={johnDoeImage} // Use the imported image
+              alt="Profile"
+              className="w-8 h-8 rounded-full"
+            />
           </div>
         </div>
-      </div>
+      </nav>
       
       {/* Main Content */}
-      <div className="flex-1 p-4 ml-48">
-        {/* General Examination Form */}
-        <div className="mx-auto w-full max-w-2xl border rounded-lg p-6 bg-gray-100 shadow-md">
-          <h2 className="text-lg font-semibold mb-4">General Examination</h2>
-          <form>
-            <div className="mb-4">
-              <label className="block text-sm font-semibold mb-2">Enter Record ID</label>
-              <input
-                type="text"
-                placeholder="Record ID"
-                className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-semibold mb-2">Nourishment</label>
-                <input
-                  type="text"
-                  placeholder="Nourishment"
-                  className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2">Eyes</label>
-                <input
-                  type="text"
-                  placeholder="Eyes"
-                  className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2">Tongue</label>
-                <input
-                  type="text"
-                  placeholder="Tongue"
-                  className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2">Pulse</label>
-                <input
-                  type="text"
-                  placeholder="Pulse"
-                  className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2">Blood Pressure</label>
-                <input
-                  type="text"
-                  placeholder="Blood Pressure"
-                  className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2">Temperature</label>
-                <input
-                  type="text"
-                  placeholder="Temperature"
-                  className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2">Respiratory Rate</label>
-                <input
-                  type="text"
-                  placeholder="Respiratory Rate"
-                  className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
-                />
-              </div>
-            </div>
-            {/* Submit Button */}
-            <div className="mt-6">
-              <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-md font-semibold">Submit</button>
-            </div>
-          </form>
-        </div>
-        
-        {/* Existing Records Display */}
-        <div className="mt-8">
-          <h2 className="text-lg font-semibold mb-4">Existing Records</h2>
-          <div className="grid gap-8">
-            {records.map((record, index) => (
-              <div key={index} className="mx-auto w-full max-w-2xl border rounded-lg p-6 bg-gray-100 shadow-md">
-                {/* Display Existing Records Here */}
-              </div>
+      <div className="flex flex-1">
+        {/* Side Navigation */}
+        <div className="bg-blue-400 w-48 p-4">
+          <div className="flex flex-col space-y-2">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={item.current
+                  ? 'bg-blue-600 text-black group flex items-center px-4 py-2 rounded-md text-sm font-semibold transition-colors duration-300'
+                  : 'text-black hover:bg-blue-600 hover:text-white group flex items-center px-4 py-2 rounded-md text-sm font-semibold transition-colors duration-300'
+                }
+              >
+                {item.name}
+              </Link>
             ))}
           </div>
         </div>
+        
+        {/* General Examination Form */}
+        <div className="flex-1 p-4">
+          <div className="mx-auto w-full max-w-2xl border rounded-lg p-6 bg-gray-100 shadow-md">
+            <h2 className="text-lg font-semibold mb-4">GENERAL EXAMINATION</h2>
+            <form>
+              <div className="mb-4">
+                <label className="block text-sm font-semibold mb-2">Enter Record ID</label>
+                <input
+                  type="text"
+                  placeholder="Record ID"
+                  className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Nourishment</label>
+                  <input
+                    type="text"
+                    placeholder="Nourishment"
+                    className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Eyes</label>
+                  <input
+                    type="text"
+                    placeholder="Eyes"
+                    className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Tongue</label>
+                  <input
+                    type="text"
+                    placeholder="Tongue"
+                    className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Pulse</label>
+                  <input
+                    type="text"
+                    placeholder="Pulse"
+                    className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Blood Pressure</label>
+                  <input
+                    type="text"
+                    placeholder="Blood Pressure"
+                    className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Temperature</label>
+                  <input
+                    type="text"
+                    placeholder="Temperature"
+                    className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Respiratory Rate</label>
+                  <input
+                    type="text"
+                    placeholder="Respiratory Rate"
+                    className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:border-blue-400"
+                  />
+                </div>
+              </div>
+              {/* Submit Button */}
+              <div className="mt-6">
+                <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-md font-semibold">Submit</button>
+              </div>
+            </form>
+          </div>
+          
+          {/* Existing Records Display */}
+          <div className="mt-8">
+            <h2 className="text-lg font-semibold mb-4">Existing Records</h2>
+            <div className="grid gap-8">
+              {records.map((record, index) => (
+                <div key={index} className="mx-auto w-full max-w-2xl border rounded-lg p-6 bg-gray-100 shadow-md">
+                  {/* Display Existing Records Here */}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+    </div>
   );
 }
+
