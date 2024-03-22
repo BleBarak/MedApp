@@ -16,12 +16,12 @@ export default function Treatment() {
   return (
     <div className="flex flex-col h-screen">
       {/* Top Navigation */}
-      <nav className="bg-blue-600 border-b border-gray-200 p-4 z-10">
+      <nav className="bg-blue-600 p-4 z-10">
         <div className="flex justify-between items-center">
           <h1 className="text-lg font-semibold">SMART MEDCARE</h1>
           {/* Profile Section */}
           <div className="flex items-center">
-            <span className="mr-4">John Doe</span>
+            <span className="mr-4"></span>
             {/* Profile Image */}
             <img
               src={johnDoeImage}
